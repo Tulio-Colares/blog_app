@@ -1,4 +1,3 @@
-import './App.css';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,6 +11,7 @@ import Single from './pages/Single';
 import Write from './pages/Write';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import "./pages/style.scss"
 
 const Layout = () => {
   return (
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       element: <Home/>
     },
     {
-      path: "/single",
+      path: "/post/:id",
       element: <Single/>
     },
     {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     element: <Register/>,
   },
   {
-    path: "/Login",
+    path: "/login",
     element: <Login/>,
   }
 ]);
@@ -54,7 +54,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={router}/>
+      <div className='container'>
+        <RouterProvider router={router}/>
+      </div>
     </div>
   );
 }
